@@ -245,23 +245,23 @@ span{
 @keyframes words {
     0%,
     20%{
-        content: "Frontend Developer";
+        content: "Software Tester";
     }
     21%,
     40%{
-        content:"Backend Developer";
+        content:"Manual Tester";
     }
     41%,
     60%{
-        content: "Graphic Designer";  
+        content: "Automation Tester";  
     }
     61%,
     80%{
-        content: "Content Creator";
+        content: "Web Designer";
     }
     81%,
     100%{
-        content: "Software Tester";
+        content: "Frontend Developer";
     }
 }
 @keyframes typing{
