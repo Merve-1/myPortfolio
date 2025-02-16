@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
-import HackerRoom from '../components/HackerRoom'; // Adjust the path as necessary
+import HackerRoom from '@/components/HackerRoom';
 import {Leva, useControls} from "leva";
 import { useMediaQuery } from 'react-responsive';
 import { calculateSizes } from '../constants';
@@ -34,7 +34,7 @@ const sizes = calculateSizes(isSmall, isMobile, isTablet)
         <p className="sm:text-3xl text-2xl font-medium text-white font-generalsans flex items-center justify-center gap-3">
           Hi, I am Marwa
           <img
-            src="/src/assets/hacker.png" // Ensure this path is correct
+            src="/hacker.png" // Ensure this path is correct
             alt="Hacker icon"
             className="w-8 h-8 sm:w-10 sm:h-10"
           />
