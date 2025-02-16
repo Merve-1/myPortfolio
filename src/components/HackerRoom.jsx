@@ -5,8 +5,8 @@ export function HackerRoom(props) {
   const { nodes, materials } = useGLTF('models/hacker-room.glb'); // Ensure model path is correct
 
   // Ensure textures exist and handle errors
-  const monitorTexture = useTexture('/textures/desk/monitor.png');
-  const screenTexture = useTexture('/textures/desk/screen.png');
+  const monitorTexture = useTexture('textures/desk/monitor.png');
+  const screenTexture = useTexture('textures/desk/screen.png');
 
   return (
     <group {...props} dispose={null}>
