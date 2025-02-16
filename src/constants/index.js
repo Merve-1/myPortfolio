@@ -1,4 +1,3 @@
-import { Link } from 'react-scroll';
 
 export const navLinks = [
   {
@@ -22,17 +21,6 @@ export const navLinks = [
     to: 'contact',
   },
 ];
-{navLinks.map((link) => (
-  <Link 
-    key={link.id} 
-    to={link.to} 
-    smooth={true} 
-    duration={500} 
-    className="cursor-pointer"
-  >
-    {link.name}
-  </Link>
-))}
 
 
   
