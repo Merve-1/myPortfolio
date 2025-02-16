@@ -4,6 +4,9 @@ import TAbox from '../components/TAbox'
 import TechStackOrbit from '../components/TechStackOrbit';
 import {useState} from "react";
 import Button from '../components/Button';
+import Girl from '/public/assets/girl.webp';
+import Grid from '/public/assets/grid3.png';
+
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
   const handleCopy = () =>{
@@ -22,7 +25,7 @@ const About = () => {
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
-            <img src="/public/assets/girl.webp" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
+            <img src={Girl} alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
 
             <div>
             <p className='grid-headtext'>Hi, I'm Marwa</p>
@@ -64,7 +67,7 @@ const About = () => {
 
           <div className="xl:col-span-2 xl:row-span-3 flex flex-col items-center justify-center space-y-6"> {/* Centering the whole card */}
       <div className="grid-container text-center"> {/* Centering the content */}
-        <img src="/public/public/public/assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain mx-auto mt-14" /> {/* Ensuring the image is centered */}
+        <img src={Grid} alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain mx-auto mt-14" /> {/* Ensuring the image is centered */}
         <div className="mt-6">
           <p className="grid-headtext">Web Developer with a Security Mindset</p>
           <p className="grid-subtext">

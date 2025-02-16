@@ -12,7 +12,7 @@ const App = () => {
         <main className='max-w-7xl' mx-auto>
         <Navbar />
         <About />
-        
+        <Projects />
         <Experience />
         <Contact />
         <Footer />

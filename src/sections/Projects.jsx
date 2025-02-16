@@ -3,7 +3,9 @@ import { useGSAP } from '@gsap/react';
 import { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
-
+import  rightArrow  from '/public/assets/right-arrow.png';
+import  arrowUp  from '/public/assets/arrow-up.png';
+import  leftArrow  from '/public/assets/left-arrow.png';
 import { myProjects } from '../constants/index.js';
 import CanvasLoader from '../components/Loading.jsx';
 import DemoComputer from '../components/DemoComputer.jsx';
@@ -64,17 +66,17 @@ const Projects = () => {
               target="_blank"
               rel="noreferrer">
               <p>Check Live Site</p>
-              <img src="/public/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
+              <img src={arrowUp} alt="arrow" className="w-3 h-3" />
             </a>
           </div>
 
           <div className="flex justify-between items-center mt-7">
             <button className="arrow-btn" onClick={() => handleNavigation('previous')}>
-              <img src="/public/assets/left-arrow.png" alt="left arrow" />
+              <img src={leftArrow} alt="left arrow" />
             </button>
 
             <button className="arrow-btn" onClick={() => handleNavigation('next')}>
-              <img src="/public/assets/right-arrow.png" alt="right arrow" className="w-4 h-4" />
+              <img src={rightArrow} alt="right arrow" className="w-4 h-4" />
             </button>
           </div>
         </div>
