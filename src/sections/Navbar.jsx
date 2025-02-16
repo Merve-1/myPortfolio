@@ -3,7 +3,7 @@ import { navLinks } from "../constants/index";
 import closeIcon from "/public/assets/close.svg"; // Importing SVGs
 import menuIcon from "/public/assets/menu.svg";
 import { Link } from 'react-scroll';
-
+import { navLinks } from '../constants/index'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
