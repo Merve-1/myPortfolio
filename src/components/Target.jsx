@@ -1,7 +1,7 @@
 import { Float, useGLTF } from '@react-three/drei';
 
 const Target = (props) => {
-  const { nodes, materials } = useGLTF('/models/chapeu.glb');
+  const { nodes, materials } = useGLTF('models/chapeu.glb');
 
   return (
     <Float floatIntensity={1} floatingRange={[0.1, 0.15]}>
@@ -22,5 +22,5 @@ const Target = (props) => {
   );
 };
 
-useGLTF.preload('/models/chapeu.glb');
+useGLTF.preload('models/chapeu.glb');
 export default Target;
