@@ -10,12 +10,11 @@ const Navbar = () => {
 
   const NavItems = () => {
     return (
-      
       <ul className="nav-ul">
         {navLinks.map(({ id, href, name }) => (
           <li key={id} className="nav-li">
             <a
-              href={`${process.env.PUBLIC_URL}${href}`} // Fix for GitHub Pages
+              href={href} // Removed unnecessary PUBLIC_URL
               className="nav-li-a"
               onClick={() => setIsOpen(false)} // Close menu on link click
             >
@@ -31,10 +30,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
-          <a
-            href={`${process.env.PUBLIC_URL}/`} // Fix for GitHub Pages
-            className="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
-          >
+          <a href="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
             Marwa
           </a>
           <button
@@ -43,11 +39,7 @@ const Navbar = () => {
             aria-label="Toggle menu"
             aria-expanded={isOpen}
           >
-            <img
-              src={isOpen ? closeIcon : menuIcon} // Fixed asset paths
-              alt="toggle"
-              className="w-6 h-6"
-            />
+            <img src={isOpen ? closeIcon : menuIcon} alt="toggle" className="w-6 h-6" />
           </button>
           <nav className="sm:flex hidden">
             <NavItems />
