@@ -1,8 +1,8 @@
 import React from 'react';
-import reactLogo from '/assets/react.svg';
-import nodeLogo from '/assets/node.svg';
-import jsLogo from '/assets/javascript.svg';
-import htmlLogo from '/assets/html.svg';
+import reactLogo from '/public/assets/react.svg';
+import nodeLogo from '/public/assets/node.svg';
+import jsLogo from '/public/assets/javascript.svg';
+import htmlLogo from '/public/assets/html.svg';
 import '../App.css';
 const TechStackOrbit = () => {
   return (
