@@ -1,8 +1,9 @@
 import React from 'react';
 import { useGLTF, useTexture } from '@react-three/drei';
+import hackerRoom from "/public/models/hacker-room.glb";
 
 export function HackerRoom(props) {
-  const model = useGLTF('/public/models/hacker-room.glb');
+  const { nodes, materials } = useGLTF(hackerRoom); // Ensure model path is correct
 
   // Ensure textures exist and handle errors
   const monitorTexture = useTexture('/textures/desk/monitor.png');
@@ -52,6 +53,6 @@ export function HackerRoom(props) {
   );
 }
 
-useGLTF.preload('/public/models/hacker-room.glb'); // Preload the GLTF model
+useGLTF.preload(hackerRoom); // Preload the GLTF model
 
 export default HackerRoom;
