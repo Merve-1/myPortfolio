@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { navLinks } from "../constants/index";
 import closeIcon from "/public/assets/close.svg"; // Importing SVGs
 import menuIcon from "/public/assets/menu.svg";
-import { Link } from 'react-scroll';
-import { navLinks } from '../constants/index'
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,20 +10,7 @@ const Navbar = () => {
 
   const NavItems = () => {
     return (
-      <section>
-        <nav className="flex space-x-4">
-      {navLinks.map((link) => (
-        <Link 
-          key={link.id} 
-          to={link.to} 
-          smooth={true} 
-          duration={500} 
-          className="cursor-pointer"
-        >
-          {link.name}
-        </Link>
-      ))}
-    </nav>
+      
       <ul className="nav-ul">
         {navLinks.map(({ id, href, name }) => (
           <li key={id} className="nav-li">
@@ -37,7 +23,7 @@ const Navbar = () => {
             </a>
           </li>
         ))}
-      </ul></section>
+      </ul>
     );
   };
 
