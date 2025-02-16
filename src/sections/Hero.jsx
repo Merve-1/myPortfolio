@@ -34,7 +34,7 @@ const sizes = calculateSizes(isSmall, isMobile, isTablet)
         <p className="sm:text-3xl text-2xl font-medium text-white font-generalsans flex items-center justify-center gap-3">
           Hi, I am Marwa
           <img
-            src="/assets/hacker.png" // Ensure this path is correct
+            src="/src/assets/hacker.png" // Ensure this path is correct
             alt="Hacker icon"
             className="w-8 h-8 sm:w-10 sm:h-10"
           />
