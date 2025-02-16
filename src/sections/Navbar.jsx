@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { navLinks } from "../constants/index";
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,7 +40,7 @@ const Navbar = () => {
             aria-expanded={isOpen}
           >
             <img
-              src={isOpen ? "/src/assets/close.svg" : "/src/assets/menu.svg"}
+              src={isOpen ? "../assets/close.svg" : "../assets/menu.svg"}
               alt="toggle"
               className="w-6 h-6"
             />
