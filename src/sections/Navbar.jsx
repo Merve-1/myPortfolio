@@ -1,38 +1,48 @@
 import React, { useState } from "react";
 import { navLinks } from "../constants/index";
-import closeIcon from "/public/assets/close.svg"; // Importing SVGs
+import closeIcon from "/public/assets/close.svg";
 import menuIcon from "/public/assets/menu.svg";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
-  const NavItems = () => {
-    return (
-      
-      <ul className="nav-ul">
-        {navLinks.map(({ id, href, name }) => (
-          <li key={id} className="nav-li">
+  const NavItems = () => (
+    <ul className="nav-ul">
+      {navLinks.map(({ id, href, name }) => (
+        <li key={id} className="nav-li">
+          {href === "/#about" ? (
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              className="nav-li-a cursor-pointer"
+              onClick={() => setIsOpen(false)}
+            >
+              {name}
+            </Link>
+          ) : (
             <a
-              href={`${process.env.PUBLIC_URL}${href}`} // Fix for GitHub Pages
+              href={`${process.env.PUBLIC_URL}${href}`}
               className="nav-li-a"
-              onClick={() => setIsOpen(false)} // Close menu on link click
+              onClick={() => setIsOpen(false)}
             >
               {name}
             </a>
-          </li>
-        ))}
-      </ul>
-    );
-  };
+          )}
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
           <a
-            href={`${process.env.PUBLIC_URL}/`} // Fix for GitHub Pages
+            href={`${process.env.PUBLIC_URL}/`}
             className="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
           >
             Marwa
@@ -44,7 +54,7 @@ const Navbar = () => {
             aria-expanded={isOpen}
           >
             <img
-              src={isOpen ? closeIcon : menuIcon} // Fixed asset paths
+              src={isOpen ? closeIcon : menuIcon}
               alt="toggle"
               className="w-6 h-6"
             />
