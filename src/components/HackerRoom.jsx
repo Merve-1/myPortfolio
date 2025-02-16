@@ -1,12 +1,13 @@
 import React from 'react';
 import { useGLTF, useTexture } from '@react-three/drei';
-
+import monitor from "/textures/desk/monitor.png";
+import screen from "/textures/desk/screen.png";
 export function HackerRoom(props) {
   const { nodes, materials } = useGLTF('models/hacker-room.glb'); // Ensure model path is correct
 
   // Ensure textures exist and handle errors
-  const monitorTexture = useTexture('textures/desk/monitor.png');
-  const screenTexture = useTexture('textures/desk/screen.png');
+  const monitorTexture = useTexture(monitor);
+  const screenTexture = useTexture(screen);
 
   return (
     <group {...props} dispose={null}>
