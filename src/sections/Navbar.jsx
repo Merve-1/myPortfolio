@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { navLinks } from "../constants/index";
+import closeIcon from "../assets/close.svg"; // Importing SVGs
+import menuIcon from "../assets/menu.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +14,7 @@ const Navbar = () => {
         {navLinks.map(({ id, href, name }) => (
           <li key={id} className="nav-li">
             <a
-              href={href}
+              href={`${process.env.PUBLIC_URL}${href}`} // Fix for GitHub Pages
               className="nav-li-a"
               onClick={() => setIsOpen(false)} // Close menu on link click
             >
@@ -25,11 +27,11 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/90">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-90">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
           <a
-            href="/"
+            href={`${process.env.PUBLIC_URL}/`} // Fix for GitHub Pages
             className="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
           >
             Marwa
@@ -41,7 +43,7 @@ const Navbar = () => {
             aria-expanded={isOpen}
           >
             <img
-              src={isOpen ? "assets/tick.svg" : "assets/menu.svg"}
+              src={isOpen ? closeIcon : menuIcon} // Fixed asset paths
               alt="toggle"
               className="w-6 h-6"
             />
@@ -51,6 +53,7 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
+      {/* Mobile Menu */}
       <div className={`nav-sidebar ${isOpen ? "max-h-screen" : "max-h-0"}`}>
         <nav className="p-5">
           <NavItems />
