@@ -1,14 +1,15 @@
 import React from 'react';
-import { useGLTF, useTexture } from '@react-three/drei';
-import hackerRoom from "/public/models/hacker-room.glb";
+import { useLoader } from '@react-three/fiber';
+import { useTexture } from '@react-three/drei';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 export function HackerRoom(props) {
-  const { nodes, materials } = useGLTF(hackerRoom); // Ensure model path is correct
+  // Load the GLB model using useLoader
+  const gltf = useLoader(GLTFLoader, '/models/hacker-room.glb');
 
-  // Ensure textures exist and handle errors
+  // Load textures for the monitor and screen
   const monitorTexture = useTexture('/textures/desk/monitor.png');
   const screenTexture = useTexture('/textures/desk/screen.png');
-
   return (
     <group {...props} dispose={null}>
       {/* Computer Mesh */}
@@ -52,7 +53,4 @@ export function HackerRoom(props) {
     </group>
   );
 }
-
-useGLTF.preload(hackerRoom); // Preload the GLTF model
-
 export default HackerRoom;
