@@ -30,7 +30,7 @@ export const navLinks = [
       subdesc:
         'Built with Node.js, React, Truffle, Solidity, and Ganache for a seamless and tamper-proof voting experience.',
       href: 'https://github.com/Merve-1/Blockchain-Applications',
-      texture: '/textures/project/project1.mp4',
+      texture: 'textures/project/project1.mp4',
       logo: 'assets/project-logo1.png',
       logoStyle: {
         backgroundColor: '#2A1816',
@@ -51,7 +51,7 @@ export const navLinks = [
       subdesc:
         'Features interactive security puzzles covering cryptography, web exploits, and reverse engineering.',
       href: 'https://github.com/Merve-1/CTFs',
-      texture: '/textures/project/project2.mp4',
+      texture: 'textures/project/project2.mp4',
       logo: 'assets/project-logo2.png',
       logoStyle: {
         backgroundColor: '#13202F',
@@ -72,7 +72,7 @@ export const navLinks = [
       subdesc:
         'Utilizes Node.js, Laravel, Django, and Sentry to deliver responsive and efficient web applications.',
       href: 'https://github.com/Merve-1/Full-Stack-Projects',
-      texture: '/textures/project/project3.mp4',
+      texture: 'textures/project/project3.mp4',
       logo: 'assets/project-logo3.png',
       logoStyle: {
         backgroundColor: '#60f5a1',
@@ -95,7 +95,7 @@ export const navLinks = [
       subdesc:
         'Developed using embedded systems, cloud connectivity, and AI to enhance industrial and home automation.',
       href: 'https://github.com/Merve-1/IoT-Projects',
-      texture: '/textures/project/project4.mp4',
+      texture: 'textures/project/project4.mp4',
       logo: 'assets/project-logo4.png',
       logoStyle: {
         backgroundColor: '#0E1F38',
@@ -116,7 +116,7 @@ export const navLinks = [
       subdesc:
         'Built using Next.js, Cloudinary AI, Clerk, and Stripe to ensure robust authentication and data security.',
       href: 'https://github.com/Merve-1/Cybersecurity-Projects',
-      texture: '/textures/project/project5.mp4',
+      texture: 'textures/project/project5.mp4',
       logo: 'assets/project-logo5.png',
       logoStyle: {
         backgroundColor: '#1C1A43',
