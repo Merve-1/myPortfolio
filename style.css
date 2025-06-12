@@ -636,65 +636,130 @@ header ul a {
 .slider .item:hover{
     filter: grayscale(0);
 }
-
-
-  /* CONTACT SECTION */
-.contact-section{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    gap: 10%;
-    align-items: center;
-    position: relative;
-
-}
-
-.contact-section h1{
-    position: absolute;
-    top: 10%;
-    left: 40%;
-}
-
-.social-box {
+/* CONTACT SECTION */
+.contact-section {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    position: relative;
+    background: transparent;
 }
 
-
-
-.contact-box p{
-    max-width: 400px;
-    margin-top: 30px;
-    margin-bottom: 5px;
-} 
-
-.contact-box input{
-    padding: 7.5px 30px;
-    background-color: lightgray;
-    width: 80%;
-    height: 25px;
-    border: none;
-    outline : none;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.contact-box button{
-    margin-top: 30px;
+.contact-section h1 {
+    font-size: 2.8rem;
     color: white;
-    padding: 15px 35px;
-    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form container */
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgba(34, 0, 73, 0.2);
+    padding: 40px;
+    border-radius: 15px;
     border: 1px solid #72a1de81;
-    background-color: #2200493d;
-    box-shadow: 0 0 5px #72a1de81;
+    box-shadow: 0 0 10px #72a1de81;
+}
+
+/* Grouped input fields */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Input block */
+.input-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 45%;
+}
+
+/* Unified input style */
+.contact-box input[type="text"],
+.contact-box input[type="email"],
+.contact-box input[type="number"],
+.contact-box textarea {
+    padding: 12px 20px;
+    background-color: transparent;
+    border: 1px solid #72a1de81;
+    color: white;
+    border-radius: 10px;
+    font-size: 1rem;
+    resize: none;
+    transition: 0.3s;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+    outline: none;
+    border-color: #a694ff;
+    box-shadow: 0 0 10px #a694ff88;
+}
+
+/* Textarea and group */
+.input-group-2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Submit button wrapper */
+.input-group-3 {
+    width: fit-content;
+    background-color: rgba(34, 0, 73, 0.2);
+    color: white;
+    padding: 12px 35px;
+    border-radius: 12px;
+    border: 1px solid #72a1de81;
+    box-shadow: 0 0 6px #72a1de81;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.contact-box button:hover{
-    opacity: 0.8;
-    box-shadow: 0 0 15px #72a1de81;
+.input-group-3:hover {
+    box-shadow: 0 0 12px #a694ff;
+    transform: scale(1.02);
+}
+
+/* Inside the button */
+.contact-box .btn {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-box {
+        min-width: 100%;
+    }
+
+    .contact-box {
+        padding: 30px 20px;
+    }
 }
 
 .footer{
@@ -709,6 +774,7 @@ header ul a {
     z-index: 999;
     padding: 0 3rem;
 }
+
 .footer .box-icons{
     padding-top: 15px;;
 
@@ -894,7 +960,7 @@ header ul a {
 
 
 @media screen and (max-width: 1200px){
-    .blackhole-box video{
+    .light-box video{
         margin-top: -20%;
     }
 
@@ -967,7 +1033,7 @@ header ul a {
         display: inline;
     }
 
-    .blackhole-box video {
+    .light-box video {
         width: 100%;
         margin-top: -15%;
     }
@@ -1116,11 +1182,11 @@ header ul a {
         
     }
 
-    .blackhole-box {
+    .light-box {
         overflow: hidden;
     }
 
-    .blackhole-box video {
+    .light-box video {
         width: 140%;
         margin-top: -27%;
 
