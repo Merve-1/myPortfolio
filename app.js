@@ -2,19 +2,20 @@
 feather.replace();
 
 // VIDEO HOVER EFFECT
-const video1 = document.getElementById('projectVideo1');
-const video2 = document.getElementById('projectVideo2');
-const video3 = document.getElementById('projectVideo3');
+const videoList = [
+    document.getElementById('projectVideo1'),
+    document.getElementById('projectVideo2'),
+    document.getElementById('projectVideo3')
+];
 const hoverSign = document.querySelector('.hover-sign');
-const videoList = [video1, video2, video3];
 
-videoList.forEach(function (video) {
+videoList.forEach(video => {
     if (!video) return;
-    video.addEventListener("mouseover", function () {
+    video.addEventListener("mouseover", () => {
         video.play();
         hoverSign?.classList.add("active");
     });
-    video.addEventListener("mouseout", function () {
+    video.addEventListener("mouseout", () => {
         video.pause();
         hoverSign?.classList.remove("active");
     });
@@ -25,92 +26,87 @@ const sideBar = document.querySelector('.sidebar');
 const menu = document.querySelector('.menu-icon');
 const closeIcon = document.querySelector('.close-icon');
 
-menu?.addEventListener("click", function () {
+menu?.addEventListener("click", () => {
     sideBar?.classList.remove("close-sidebar");
     sideBar?.classList.add("open-sidebar");
 });
 
-closeIcon?.addEventListener("click", function () {
+closeIcon?.addEventListener("click", () => {
     sideBar?.classList.remove("open-sidebar");
     sideBar?.classList.add("close-sidebar");
 });
 
-// MENU TOGGLE FOR MOBILE VIEW (if needed)
-let menuIcon = document.querySelector('#menu-icon'); // optional if using another icon
-let navbar = document.querySelector('.navbar');
+// MENU TOGGLE FOR MOBILE VIEW
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('.navbar');
+
 menuIcon?.addEventListener('click', () => {
     menuIcon.classList.toggle('bx-x');
     navbar?.classList.toggle('active');
 });
 
 // SCROLL ACTIVE LINK LOGIC
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('header nav a');
 
 window.addEventListener('scroll', () => {
-    let top = window.scrollY;
+    const top = window.scrollY;
     sections.forEach(sec => {
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+        const offset = sec.offsetTop - 150;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute('id');
         if (top >= offset && top < offset + height) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                const selector = `header nav a[href*="${id}"]`;
-                let activeLink = document.querySelector(selector);
-                if (activeLink) activeLink.classList.add('active');
+                const activeLink = document.querySelector(`header nav a[href*="${id}"]`);
+                activeLink?.classList.add('active');
             });
         }
     });
 });
 
-// EMAIL FORM SUBMIT
-document.addEventListener('DOMContentLoaded', function () {
+// EMAIL FORM SUBMIT - Calls a secure backend API
+document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
-    form?.addEventListener('submit', function (event) {
+    form?.addEventListener('submit', async event => {
         event.preventDefault();
 
-        const fullName = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+        const data = {
+            fullName: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
 
-        const bodyMessage = `
-            Full Name: ${fullName} <br>
-            Email: ${email} <br>
-            Phone Number: ${phone} <br>
-            Message: ${message}
-        `;
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
 
-        Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: "marwa.alazaab@gmail.com",
-            Password: "CEF3C30BE1B940495C12FAA47432D1FD7C1B",
-            To: 'marwa.alazaab@gmail.com',
-            From: 'marwa.alazaab@gmail.com',
-            Subject: subject,
-            Body: bodyMessage
-        }).then(response => {
-            if (response === "OK") {
+            const result = await response.json();
+
+            if (response.ok) {
                 Swal.fire({
                     title: "Success!",
-                    text: "Message sent successfully!",
+                    text: result.message || "Message sent successfully!",
                     icon: "success"
                 });
             } else {
                 Swal.fire({
                     title: "Error!",
-                    text: "Failed to send the message.",
+                    text: result.message || "Failed to send the message.",
                     icon: "error"
                 });
             }
-        }).catch(error => {
+        } catch (error) {
             Swal.fire({
                 title: "Error!",
                 text: "An error occurred: " + error.message,
                 icon: "error"
             });
-        });
+        }
     });
 });
