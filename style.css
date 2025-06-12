@@ -1,3 +1,7 @@
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -485,6 +489,48 @@ header ul a {
     width: 30%;
     height: 100px;
 }
+@media screen and (max-width: 768px) {
+    .info-section,
+    .my-project {
+        margin-left: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr; /* Stack cards */
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-vidbox,
+    .project-info {
+        width: 100%;
+        min-width: auto;
+        padding: 0;
+    }
+
+    .project-info h1,
+    .project-info p {
+        text-wrap: wrap;
+        max-width: 100%;
+        min-width: auto;
+    }
+}
+.info-section {
+    margin: 100px auto 0 auto;
+    padding: 0 20px;
+    width: 90%;
+}
+
+.my-project {
+    padding: 0 20px;
+    margin: 200px auto 700px auto;
+}
+
 
 .hover-sign::before,
 .hover-sign::after {
@@ -870,11 +916,9 @@ header ul a {
     
 }
 
-
 .close-icon{
     font-size: 50px;
     color: lightgray;
-    padding-left: 10px;
     cursor: pointer;
 }
 
