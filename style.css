@@ -1,12 +1,10 @@
-html, body {
-    overflow-x: hidden;
-}
 
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: lightgray;
+    
 }
 
 .container {
@@ -287,12 +285,12 @@ header ul a {
 }
 
 .info-section {
+    margin: 100px auto 0 auto;
+    padding: 0 20px;
+    width: 90%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 150px;
-    width: 80%;
-    margin-top: 100px;
 }
 
 .info-cards {
@@ -392,6 +390,7 @@ header ul a {
 }
 
 .my-project {
+    
     display: flex;
     flex-direction: column;
     gap: 10%;
@@ -400,7 +399,7 @@ header ul a {
     padding-left: 180px;
     height: 100vh;
     margin-top: 200px;
-    margin-bottom: 700px;
+    margin-bottom: 380px;
 }
 
 .project-card {
@@ -488,47 +487,6 @@ header ul a {
     justify-content: center;
     width: 30%;
     height: 100px;
-}
-@media screen and (max-width: 768px) {
-    .info-section,
-    .my-project {
-        margin-left: 0;
-        padding-left: 20px;
-        padding-right: 20px;
-        width: 100%;
-    }
-
-    .info-cards {
-        grid-template-columns: 1fr; /* Stack cards */
-    }
-
-    .project-card {
-        flex-direction: column;
-    }
-
-    .project-vidbox,
-    .project-info {
-        width: 100%;
-        min-width: auto;
-        padding: 0;
-    }
-
-    .project-info h1,
-    .project-info p {
-        text-wrap: wrap;
-        max-width: 100%;
-        min-width: auto;
-    }
-}
-.info-section {
-    margin: 100px auto 0 auto;
-    padding: 0 20px;
-    width: 90%;
-}
-
-.my-project {
-    padding: 0 20px;
-    margin: 200px auto 700px auto;
 }
 
 
@@ -1060,6 +1018,35 @@ header ul a {
 }
 
 @media screen and (max-width: 700px){
+    .info-section,
+    .my-project {
+        margin-left: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr; /* Stack cards */
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-vidbox,
+    .project-info {
+        width: 100%;
+        min-width: auto;
+        padding: 0;
+    }
+
+    .project-info h1,
+    .project-info p {
+        text-wrap: wrap;
+        max-width: 100%;
+        min-width: auto;
+    }
     header {
         position: fixed;
         height: 50px;
