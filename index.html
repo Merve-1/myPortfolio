@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marwa Alazab | Software Engineer & Educator</title>
+<title>Marwa Alazab | Cybersecurity Engineer & Educator</title>
 <link rel="icon" type="image/svg+xml" href="header.svg"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,200&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -380,6 +380,10 @@ section {
 .cert-issuer { font-size: 0.58rem; font-weight: 300; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
 .cert-desc { font-size: 0.7rem; color: var(--ink-3); line-height: 1.75; font-weight: 300; }
 
+#diplomas { background: var(--bg); }
+#diplomas .cert-card { background: var(--bg); }
+#diplomas .cert-card:hover { background: var(--bg-3); }
+
 /* ── INTERESTS ────────────────────────────────────────── */
 #interests { background: var(--bg); }
 .int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5px; background: var(--rule); }
@@ -396,6 +400,21 @@ section {
 
 /* ── PROJECTS ─────────────────────────────────────────── */
 #projects { background: var(--bg-2); }
+.sub-head {
+  display: flex; align-items: center; gap: 16px;
+  margin: 0 0 24px;
+}
+.sub-head-title {
+  font-family: 'DM Serif Display', serif; font-size: 1.4rem;
+  color: var(--ink); letter-spacing: -1px; line-height: 1;
+}
+.sub-head-title em { font-style: italic; color: var(--gold); }
+.sub-head-line { flex: 1; height: 0.5px; background: var(--rule-2); }
+.sub-head-count {
+  font-size: 0.55rem; font-weight: 300; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--ink-4);
+}
+.sub-head.second { margin-top: 72px; }
 .proj-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 0.5px; background: var(--rule); }
 .proj-card {
   background: var(--bg-2); padding: 32px; position: relative;
@@ -422,10 +441,34 @@ section {
   border: 0.5px solid var(--rule-2); color: var(--ink-4);
 }
 
+/* ── GITBOOK ──────────────────────────────────────────── */
+#gitbook { background: var(--bg); }
+.gb-card {
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 0.5px;
+  background: var(--rule); text-decoration: none;
+}
+.gb-main { background: var(--bg); padding: 48px; transition: background 0.25s; }
+.gb-side {
+  background: var(--bg-3); padding: 48px; display: flex;
+  flex-direction: column; justify-content: space-between; gap: 32px;
+  transition: background 0.25s;
+}
+.gb-card:hover .gb-main { background: var(--bg-3); }
+.gb-card:hover .gb-side { background: var(--bg-2); }
+.gb-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--ink); letter-spacing: -1px; margin-bottom: 14px; }
+.gb-title em { font-style: italic; color: var(--gold); }
+.gb-desc { font-size: 0.74rem; color: var(--ink-3); line-height: 1.9; font-weight: 300; max-width: 520px; }
+.gb-link {
+  font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--ink);
+  border-bottom: 0.5px solid var(--gold); padding-bottom: 4px;
+  align-self: flex-start; transition: color 0.2s;
+}
+.gb-card:hover .gb-link { color: var(--gold); }
+
 /* ── CONTACT ──────────────────────────────────────────── */
-#contact { background: var(--bg); }
+#contact { background: var(--bg-2); }
 .contact-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0.5px; background: var(--rule); }
-.contact-left { padding: 48px; background: var(--bg); }
+.contact-left { padding: 48px; background: var(--bg-2); }
 .contact-intro { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--ink-3); line-height: 1.85; margin-bottom: 40px; }
 .contact-email {
   display: inline-flex; align-items: center; gap: 10px;
@@ -441,6 +484,8 @@ section {
 .contact-item:hover { background: var(--bg); }
 .contact-item-label { font-size: 0.5rem; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
 .contact-item-val { font-size: 0.7rem; color: var(--ink-3); line-height: 1.6; font-weight: 300; }
+.contact-item-val a { color: inherit; text-decoration: none; border-bottom: 0.5px solid var(--rule-2); }
+.contact-item-val a:hover { color: var(--gold); border-color: var(--gold); }
 
 /* ── FOOTER ───────────────────────────────────────────── */
 footer {
@@ -457,17 +502,21 @@ footer {
 @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
 
 /* ── RESPONSIVE ───────────────────────────────────────── */
+@media(max-width:1100px){
+  .nav-links { gap: 20px; }
+}
 @media(max-width:900px){
   #hero { grid-template-columns: 1fr; }
   .hero-right { display: none; }
   .hero-left { padding: 48px 28px; }
   section { padding: 64px 28px; }
-  .exp-grid,.int-grid,.contact-wrap { grid-template-columns: 1fr; }
+  .exp-grid,.int-grid,.contact-wrap,.gb-card { grid-template-columns: 1fr; }
   .cert-grid { grid-template-columns: 1fr; }
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   footer { padding: 20px 28px; flex-direction: column; gap: 6px; }
   .proj-grid { grid-template-columns: 1fr; }
+  .gb-main, .gb-side { padding: 32px 28px; }
   .kanji-char { opacity: 0.7; }
 }
 </style>
@@ -487,14 +536,16 @@ footer {
 <!-- ── NAV ───────────────────────────────────────────── -->
 <nav>
   <a class="nav-logo" href="#hero">
-    Marwa <span class="nav-logo-sep">—</span>
+    Marwa <span class="nav-logo-sep">·</span>
     <span class="nav-logo-sub">Portfolio</span>
   </a>
   <div class="nav-links">
     <a href="#experience">Experience</a>
     <a href="#certificates">Certificates</a>
+    <a href="#diplomas">Diplomas</a>
     <a href="#interests">Interests</a>
     <a href="#projects">Projects</a>
+    <a href="#gitbook">GitBook</a>
     <a href="#contact">Contact</a>
   </div>
   <a class="nav-cta" href="#contact">Let's Connect</a>
@@ -503,30 +554,30 @@ footer {
 <!-- ── HERO ──────────────────────────────────────────── -->
 <section id="hero" style="border-top:none;padding:0;">
   <div class="hero-left">
-    <div class="hero-eyebrow">Software Engineer &amp; Educator</div>
+    <div class="hero-eyebrow">Cybersecurity Engineer &amp; Educator</div>
 
     <div class="hero-name-block">
       <div class="hero-fname">Marwa</div>
       <span class="hero-lname">Alazab</span>
       <div class="hero-divider">
         <div class="hero-divider-line"></div>
-        <div class="hero-title-row">Software Engineer · TA · Instructor · AAST</div>
+        <div class="hero-title-row">Cybersecurity Engineer · TA · Instructor · AAST</div>
       </div>
     </div>
 
     <div class="hero-bottom">
-      <p class="hero-tagline">Building secure, intelligent systems, and the next generation of developers who'll shape them.</p>
+      <p class="hero-tagline">Securing applications and pipelines from the first commit, and teaching the next generation of developers to build with security in mind.</p>
       <div class="hero-pills">
-        <span class="hpill on">Engineering</span>
-        <span class="hpill on">Security</span>
+        <span class="hpill on">AppSec</span>
+        <span class="hpill on">DevSecOps</span>
+        <span class="hpill on">SOC</span>
         <span class="hpill">AI Security</span>
         <span class="hpill">Teaching</span>
-        <span class="hpill">ISTQB</span>
         <span class="hpill">eJPT</span>
         <span class="hpill">CSA</span>
       </div>
       <div class="hero-btns">
-        <a href="#experience" class="btn-solid">View My Work</a>
+        <a href="#projects" class="btn-solid">View My Work</a>
         <a href="#contact" class="btn-ghost">Get in Touch</a>
       </div>
     </div>
@@ -537,11 +588,11 @@ footer {
     <div class="hero-right-top">
       <div class="quote-mark">"</div>
       <div class="quote-text">
-        I sit at the intersection of <strong>code, security,</strong> and education, writing software that defends, and teaching students who will build the future.
+        I sit at the intersection of <strong>application security, DevSecOps,</strong> and education, securing code in the pipeline, building detection skills, and teaching students who will build the future.
       </div>
       <div class="quote-attr">Marwa Alazab · AAST Computer Science</div>
     </div>
-    
+
   </div>
 </section>
 
@@ -556,25 +607,25 @@ footer {
     <div class="exp-card">
       <div class="exp-role">Teaching Assistant</div>
       <div class="exp-org">AAST · EJUST · AIU · ANU</div>
-      <div class="exp-desc">Supporting undergraduate CS students across four universities — leading labs, mentoring learners, and bridging the gap between theory and real-world practice.</div>
+      <div class="exp-desc">Supporting undergraduate CS students across four universities, leading labs, mentoring learners, and bridging the gap between theory and real-world practice.</div>
       <span class="exp-badge">Academia</span>
     </div>
     <div class="exp-card">
       <div class="exp-role">Course Instructor</div>
-      <div class="exp-org">Innova STEM Education · iSchool</div>
+      <div class="exp-org">Innova STEM Education · iSchool · Skidy Rien · eYouth</div>
       <div class="exp-desc">Designing and delivering technical curricula in software engineering and STEM. Building structured learning pathways that make complex concepts engaging at every level.</div>
       <span class="exp-badge">Instruction</span>
     </div>
     <div class="exp-card">
       <div class="exp-role">Software Engineer</div>
       <div class="exp-org">Procuredox</div>
-      <div class="exp-desc">Developing and maintaining software within procurement workflows. Focused on reliable, scalable backend systems and cross-functional product delivery.</div>
+      <div class="exp-desc">Developing and maintaining software within procurement workflows. Focused on reliable, scalable backend systems and cross-functional product delivery, the engineering foundation behind my security work.</div>
       <span class="exp-badge">Industry</span>
     </div>
     <div class="exp-card">
       <div class="exp-role">Competition Judge</div>
-      <div class="exp-org">Technical Committees</div>
-      <div class="exp-desc">Evaluating student and professional projects in engineering and CS competitions — bringing a rigorous eye for technical quality, innovation, and real-world impact.</div>
+      <div class="exp-org">RoboCup · WRO · ROV</div>
+      <div class="exp-desc">Evaluating student and professional projects in robotics, engineering and CS competitions, including RoboCup, WRO and ROV, bringing a rigorous eye for technical quality, innovation, and real-world impact.</div>
       <span class="exp-badge">Community</span>
     </div>
   </div>
@@ -589,21 +640,67 @@ footer {
   <div class="cert-grid">
     <div class="cert-card">
       <div class="cert-num">01</div>
-      <div class="cert-name">eJPT — Junior Penetration Tester</div>
+      <div class="cert-name">eJPT, Junior Penetration Tester</div>
       <div class="cert-issuer">INE</div>
-      <div class="cert-desc">Hands-on certification in ethical hacking — covering network security, web application vulnerabilities, and offensive security fundamentals.</div>
+      <div class="cert-desc">Hands-on certification in ethical hacking, covering network security, web application vulnerabilities, and offensive security fundamentals.</div>
     </div>
     <div class="cert-card">
       <div class="cert-num">02</div>
-      <div class="cert-name">CSA — Certified SOC Analyst v1</div>
+      <div class="cert-name">CSA, Certified SOC Analyst v1</div>
       <div class="cert-issuer">EC-Council</div>
       <div class="cert-desc">Proficiency in SOC operations, SIEM deployment, incident detection and response, log management, and threat intelligence for Tier I &amp; II analyst roles.</div>
     </div>
     <div class="cert-card">
       <div class="cert-num">03</div>
-      <div class="cert-name">ISTQB FL — Software Testing</div>
-      <div class="cert-issuer">ISTQB · Foundation Level</div>
-      <div class="cert-desc">Internationally recognised certification covering test design, management, and quality assurance principles across the full software lifecycle.</div>
+      <div class="cert-name">AWS Certified Cloud Practitioner</div>
+      <div class="cert-issuer">Amazon Web Services</div>
+      <div class="cert-desc">Foundational knowledge of AWS cloud concepts, core services, security and shared responsibility, pricing, and architecture principles.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-num">04</div>
+      <div class="cert-name">FortiOS</div>
+      <div class="cert-issuer">Fortinet</div>
+      <div class="cert-desc">Configuring and managing FortiGate firewalls with FortiOS, including policies, VPNs, and network security features.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-num">05</div>
+      <div class="cert-name">FortiSIEM</div>
+      <div class="cert-issuer">Fortinet</div>
+      <div class="cert-desc">Security information and event management with FortiSIEM, covering log collection, correlation, and incident monitoring.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-num">06</div>
+      <div class="cert-name">FortiWeb</div>
+      <div class="cert-issuer">Fortinet</div>
+      <div class="cert-desc">Protecting web applications and APIs with FortiWeb, including web application firewall policies and attack mitigation.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DIPLOMAS ──────────────────────────────────────── -->
+<section id="diplomas">
+  <div class="sec-header">
+    <div><div class="sec-eyebrow">Training</div><h2 class="sec-title">Dip<em>lomas</em></h2></div>
+    <div class="sec-num">04</div>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-num">01</div>
+      <div class="cert-name">SOC Training</div>
+      <div class="cert-issuer">Route Academy</div>
+      <div class="cert-desc">Security operations training covering monitoring, alert triage, incident detection and response, and SIEM fundamentals.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-num">02</div>
+      <div class="cert-name">Cybersecurity Track</div>
+      <div class="cert-issuer">DEBI</div>
+      <div class="cert-desc">A structured cybersecurity track covering core security concepts, defensive and offensive techniques, and practical labs.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-num">03</div>
+      <div class="cert-name">.NET Track</div>
+      <div class="cert-issuer">Route Academy</div>
+      <div class="cert-desc">Full .NET development track covering C#, backend development, APIs, and data access with the .NET ecosystem.</div>
     </div>
   </div>
 </section>
@@ -612,17 +709,19 @@ footer {
 <section id="interests">
   <div class="sec-header">
     <div><div class="sec-eyebrow">Passions</div><h2 class="sec-title">Areas of <em>Interest</em></h2></div>
-    <div class="sec-num">04</div>
+    <div class="sec-num">05</div>
   </div>
   <div class="int-grid">
     <div class="int-card">
-      <div class="int-title">Security &amp; Development</div>
+      <div class="int-title">Security &amp; DevSecOps</div>
       <div class="int-tags">
-        <span class="int-tag">Software Development</span>
         <span class="int-tag">Application Security</span>
+        <span class="int-tag">DevSecOps</span>
+        <span class="int-tag">Secure SDLC</span>
+        <span class="int-tag">SOC Operations</span>
+        <span class="int-tag">Threat Detection</span>
         <span class="int-tag">AI Security</span>
         <span class="int-tag">Penetration Testing</span>
-        <span class="int-tag">SOC Operations</span>
       </div>
     </div>
     <div class="int-card">
@@ -641,13 +740,101 @@ footer {
 <section id="projects">
   <div class="sec-header" style="margin-bottom:40px">
     <div><div class="sec-eyebrow">Portfolio</div><h2 class="sec-title">Pro<em>jects</em></h2></div>
-    <div class="sec-num">05</div>
+    <div class="sec-num">06</div>
+  </div>
+
+  <!-- MY PROJECTS -->
+  <div class="sub-head">
+    <div class="sub-head-title">My <em>Projects</em></div>
+    <div class="sub-head-line"></div>
+    <div class="sub-head-count">07 Repos</div>
   </div>
   <div class="proj-grid">
+    <a class="proj-card" href="https://github.com/Merve-1/Secure-Multi-Tenant-SaaS-Platform-with-Automated-Threat-Detection" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#c8922a;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">Secure Multi-Tenant SaaS Platform</div>
+      <div class="proj-desc">A multi-tenant SaaS platform designed with security at its core, featuring tenant isolation and automated threat detection.</div>
+      <div class="proj-tags"><span class="proj-tag">AppSec</span><span class="proj-tag">SaaS</span><span class="proj-tag">Threat Detection</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/DevOps-Playground" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#2496ed;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">DevOps Playground</div>
+      <div class="proj-desc">Hands-on DevOps experiments covering automation, CI/CD pipelines, and infrastructure, the foundation for DevSecOps practice.</div>
+      <div class="proj-tags"><span class="proj-tag">DevOps</span><span class="proj-tag">CI/CD</span><span class="proj-tag">Automation</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/CyberSecurity-SOC-Projects" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#c8922a;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">CyberSecurity SOC Projects</div>
+      <div class="proj-desc">Security operations work: detection, log analysis, alert triage, and incident response workflows.</div>
+      <div class="proj-tags"><span class="proj-tag">SOC</span><span class="proj-tag">SIEM</span><span class="proj-tag">Incident Response</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/AI-in-SOC" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#3572a5;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">AI in SOC</div>
+      <div class="proj-desc">Applying AI to security operations: augmenting detection, triage, and analyst workflows.</div>
+      <div class="proj-tags"><span class="proj-tag">AI</span><span class="proj-tag">SOC</span><span class="proj-tag">Automation</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/AI-Security" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#3572a5;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">AI Security</div>
+      <div class="proj-desc">Research and experiments on securing AI systems: understanding attack surfaces and building defenses.</div>
+      <div class="proj-tags"><span class="proj-tag">AI Security</span><span class="proj-tag">Research</span><span class="proj-tag">Defense</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/Python-Scripting-for-Cybersecurity" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#3572a5;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">Python Scripting for Cybersecurity</div>
+      <div class="proj-desc">Python scripts for security tasks: automation, analysis, and tooling for both offensive and defensive work.</div>
+      <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Scripting</span><span class="proj-tag">Security</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/Cybersecurity-Projects" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#c8922a;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">Cybersecurity Projects</div>
+      <div class="proj-desc">Security tooling and research, penetration testing scripts, vulnerability analysis, and defensive security implementations.</div>
+      <div class="proj-tags"><span class="proj-tag">Security</span><span class="proj-tag">Python</span><span class="proj-tag">Pen Testing</span></div>
+    </a>
+  </div>
+
+  <!-- EDUCATIONAL REPOS -->
+  <div class="sub-head second">
+    <div class="sub-head-title">Educational <em>Repos</em></div>
+    <div class="sub-head-line"></div>
+    <div class="sub-head-count">11 Repos</div>
+  </div>
+  <div class="proj-grid">
+    <a class="proj-card" href="https://github.com/Merve-1/js-playground" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#f7df1e;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">JS Playground</div>
+      <div class="proj-desc">A collection of JavaScript exercises and experiments for learning and teaching core language concepts.</div>
+      <div class="proj-tags"><span class="proj-tag">JavaScript</span><span class="proj-tag">Education</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/Tenrai-RESTful-API-Node" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#68a063;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">Tenrai RESTful API (Node)</div>
+      <div class="proj-desc">A RESTful API built with Node.js, used to teach routing, request handling, and API design.</div>
+      <div class="proj-tags"><span class="proj-tag">Node.js</span><span class="proj-tag">REST API</span><span class="proj-tag">Backend</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/Learn-Godot-by-Building-Games" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#478cbf;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">Learn Godot by Building Games</div>
+      <div class="proj-desc">Project-based learning of the Godot engine, building small games step by step.</div>
+      <div class="proj-tags"><span class="proj-tag">Godot</span><span class="proj-tag">Game Dev</span><span class="proj-tag">Education</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/Game-Development" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#478cbf;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">Game Development</div>
+      <div class="proj-desc">Game development course material and practice projects covering core concepts and mechanics.</div>
+      <div class="proj-tags"><span class="proj-tag">Game Dev</span><span class="proj-tag">Course</span><span class="proj-tag">Education</span></div>
+    </a>
+    <a class="proj-card" href="https://github.com/Merve-1/Web-Development-Course" target="_blank" rel="noopener">
+      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#f7df1e;"></div><span class="proj-arrow">↗</span></div>
+      <div class="proj-name">Full Stack (HTML, CSS, JS, React, PHP, Laravel)</div>
+      <div class="proj-desc">A structured course repository covering frontend and backend fundamentals, built for teaching and self-guided learning.</div>
+      <div class="proj-tags"><span class="proj-tag">HTML/CSS</span><span class="proj-tag">JavaScript</span><span class="proj-tag">Education</span></div>
+    </a>
     <a class="proj-card" href="https://github.com/Merve-1/DotNet-Projects" target="_blank" rel="noopener">
       <div class="proj-card-top"><div class="proj-lang-dot" style="background:#7b68ee;"></div><span class="proj-arrow">↗</span></div>
       <div class="proj-name">.NET Projects</div>
-      <div class="proj-desc">Backend and full-stack applications built with the .NET ecosystem — APIs, data access patterns, and enterprise-grade architecture.</div>
+      <div class="proj-desc">Backend and full-stack applications built with the .NET ecosystem, APIs, data access patterns, and enterprise-grade architecture.</div>
       <div class="proj-tags"><span class="proj-tag">C#</span><span class="proj-tag">.NET</span><span class="proj-tag">Backend</span></div>
     </a>
     <a class="proj-card" href="https://github.com/Merve-1/StarWars" target="_blank" rel="noopener">
@@ -656,62 +843,69 @@ footer {
       <div class="proj-desc">An Angular application exploring Star Wars characters and films via the SWAPI, with dynamic data rendering and a component-driven UI.</div>
       <div class="proj-tags"><span class="proj-tag">Angular</span><span class="proj-tag">TypeScript</span><span class="proj-tag">REST API</span></div>
     </a>
-    <a class="proj-card" href="https://github.com/Merve-1/Web-Development-Course" target="_blank" rel="noopener">
-      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#f7df1e;"></div><span class="proj-arrow">↗</span></div>
-      <div class="proj-name">Full Stack (HTML, CSS, JS, React, PHP, Laravel)</div>
-      <div class="proj-desc">A structured course repository covering frontend and backend fundamentals — built for teaching and self-guided learning.</div>
-      <div class="proj-tags"><span class="proj-tag">HTML/CSS</span><span class="proj-tag">JavaScript</span><span class="proj-tag">Education</span></div>
-    </a>
     <a class="proj-card" href="https://github.com/Merve-1/Laravel-Projects" target="_blank" rel="noopener">
       <div class="proj-card-top"><div class="proj-lang-dot" style="background:#ff2d20;"></div><span class="proj-arrow">↗</span></div>
       <div class="proj-name">Laravel Projects</div>
-      <div class="proj-desc">PHP web applications built with Laravel — MVC architecture, Eloquent ORM, authentication, and RESTful API design.</div>
+      <div class="proj-desc">PHP web applications built with Laravel, MVC architecture, Eloquent ORM, authentication, and RESTful API design.</div>
       <div class="proj-tags"><span class="proj-tag">PHP</span><span class="proj-tag">Laravel</span><span class="proj-tag">MVC</span></div>
-    </a>
-    <a class="proj-card" href="https://github.com/Merve-1/Cybersecurity-Projects" target="_blank" rel="noopener">
-      <div class="proj-card-top"><div class="proj-lang-dot" style="background:#c8922a;"></div><span class="proj-arrow">↗</span></div>
-      <div class="proj-name">Cybersecurity Projects</div>
-      <div class="proj-desc">Security tooling and research — penetration testing scripts, vulnerability analysis, and defensive security implementations.</div>
-      <div class="proj-tags"><span class="proj-tag">Security</span><span class="proj-tag">Python</span><span class="proj-tag">Pen Testing</span></div>
     </a>
     <a class="proj-card" href="https://github.com/Merve-1/C-Projects" target="_blank" rel="noopener">
       <div class="proj-card-top"><div class="proj-lang-dot" style="background:#a8b9cc;"></div><span class="proj-arrow">↗</span></div>
       <div class="proj-name">C Projects</div>
-      <div class="proj-desc">Systems-level programming in C — memory management, data structures, algorithms, and low-level software concepts.</div>
+      <div class="proj-desc">Systems-level programming in C, memory management, data structures, algorithms, and low-level software concepts.</div>
       <div class="proj-tags"><span class="proj-tag">C</span><span class="proj-tag">Systems</span><span class="proj-tag">Algorithms</span></div>
     </a>
     <a class="proj-card" href="https://github.com/Merve-1/AngularProjects" target="_blank" rel="noopener">
       <div class="proj-card-top"><div class="proj-lang-dot" style="background:#dd0031;"></div><span class="proj-arrow">↗</span></div>
       <div class="proj-name">Angular Projects</div>
-      <div class="proj-desc">Frontend applications built with Angular — reactive forms, routing, state management, and component composition patterns.</div>
+      <div class="proj-desc">Frontend applications built with Angular, reactive forms, routing, state management, and component composition patterns.</div>
       <div class="proj-tags"><span class="proj-tag">Angular</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Frontend</span></div>
     </a>
     <a class="proj-card" href="https://github.com/Merve-1/FlutterProjects" target="_blank" rel="noopener">
       <div class="proj-card-top"><div class="proj-lang-dot" style="background:#54c5f8;"></div><span class="proj-arrow">↗</span></div>
       <div class="proj-name">Flutter Projects</div>
-      <div class="proj-desc">Cross-platform mobile applications built with Flutter and Dart — clean UI, state management, and native-feeling interactions.</div>
+      <div class="proj-desc">Cross-platform mobile applications built with Flutter and Dart, clean UI, state management, and native-feeling interactions.</div>
       <div class="proj-tags"><span class="proj-tag">Flutter</span><span class="proj-tag">Dart</span><span class="proj-tag">Mobile</span></div>
     </a>
   </div>
+</section>
+
+<!-- ── GITBOOK ────────────────────────────────────────── -->
+<section id="gitbook">
+  <div class="sec-header">
+    <div><div class="sec-eyebrow">Knowledge Base</div><h2 class="sec-title">Git<em>Book</em></h2></div>
+    <div class="sec-num">07</div>
+  </div>
+  <a class="gb-card" href="https://merve.gitbook.io/merve-docs" target="_blank" rel="noopener">
+    <div class="gb-main">
+      <div class="gb-title">Merve <em>Docs</em></div>
+      <p class="gb-desc">My personal documentation and study notes on cybersecurity, application security, DevSecOps, and development, collected in one place for learning and reference.</p>
+    </div>
+    <div class="gb-side">
+      <div class="contact-item-label">Read Online</div>
+      <span class="gb-link">merve.gitbook.io/merve-docs →</span>
+    </div>
+  </a>
 </section>
 
 <!-- ── CONTACT ────────────────────────────────────────── -->
 <section id="contact">
   <div class="sec-header">
     <div><div class="sec-eyebrow">Get in Touch</div><h2 class="sec-title">Let's <em>Connect</em></h2></div>
-    <div class="sec-num">06</div>
+    <div class="sec-num">08</div>
   </div>
   <div class="contact-wrap">
     <div class="contact-left">
-      <p class="contact-intro">Whether you're looking to collaborate on a project, need a passionate instructor, or want to talk about application security and AI — I'd love to hear from you.</p>
+      <p class="contact-intro">Whether you're looking to collaborate on a project, need a passionate instructor, or want to talk about application security, DevSecOps, SOC operations, and AI security, I'd love to hear from you.</p>
       <a href="mailto:marwa.alazaab@gmail.com" class="contact-email">marwa.alazaab@gmail.com →</a>
     </div>
     <div class="contact-right">
       <div class="contact-right-title">Quick Profile</div>
       <div class="contact-items">
         <div class="contact-item"><div class="contact-item-label">Education</div><div class="contact-item-val">AAST · B.Sc. Computer Science<br>M.Sc. In Progress</div></div>
-        <div class="contact-item"><div class="contact-item-label">Current Roles</div><div class="contact-item-val">TA · Instructor · Software Engineer</div></div>
+        <div class="contact-item"><div class="contact-item-label">Current Roles</div><div class="contact-item-val">Cybersecurity Engineer · TA · Instructor</div></div>
         <div class="contact-item"><div class="contact-item-label">Based In</div><div class="contact-item-val">Egypt · Open to Remote</div></div>
+        <div class="contact-item"><div class="contact-item-label">GitBook</div><div class="contact-item-val"><a href="https://merve.gitbook.io/merve-docs" target="_blank" rel="noopener">merve.gitbook.io/merve-docs</a></div></div>
         <div class="contact-item"><div class="contact-item-label">Email</div><div class="contact-item-val">marwa.alazaab@gmail.com</div></div>
       </div>
     </div>
@@ -722,7 +916,7 @@ footer {
 <footer>
   <div class="footer-name">Marwa Alazab</div>
   <div class="footer-katakana">マルワ・アラザブ</div>
-  <div class="footer-note">Software Engineer · Educator · © 2026</div>
+  <div class="footer-note">Cybersecurity Engineer · Educator · © 2026</div>
 </footer>
 
 </body>
